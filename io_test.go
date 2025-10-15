@@ -25,7 +25,7 @@ var glTestFdLock sync.Mutex
 // Check that SetDeadline() works for ptmx.
 // Outstanding Read() calls must be interrupted by deadline.
 //
-// https://github.com/creack/pty/issues/162
+// https://github.com/cocoplex10/pty/issues/162
 //
 //nolint:paralleltest // Potential in (*os.File).Fd().
 func TestReadDeadline(t *testing.T) {
@@ -56,8 +56,8 @@ func TestReadDeadline(t *testing.T) {
 
 // Check that ptmx.Close() interrupts outstanding ptmx.Read() calls.
 //
-// https://github.com/creack/pty/issues/114
-// https://github.com/creack/pty/issues/88
+// https://github.com/cocoplex10/pty/issues/114
+// https://github.com/cocoplex10/pty/issues/88
 //
 //nolint:paralleltest // Potential in (*os.File).Fd().
 func TestReadClose(t *testing.T) {
@@ -90,9 +90,9 @@ func prepare(t *testing.T) (ptmx *os.File, done func()) {
 	t.Helper()
 
 	if runtime.GOOS == "darwin" {
-		t.Log("creack/pty uses blocking i/o on darwin intentionally:")
-		t.Log("> https://github.com/creack/pty/issues/52")
-		t.Log("> https://github.com/creack/pty/pull/53")
+		t.Log("cocoplex10/pty uses blocking i/o on darwin intentionally:")
+		t.Log("> https://github.com/cocoplex10/pty/issues/52")
+		t.Log("> https://github.com/cocoplex10/pty/pull/53")
 		t.Log("> https://github.com/golang/go/issues/22099")
 		t.SkipNow()
 	}
